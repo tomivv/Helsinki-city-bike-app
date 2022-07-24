@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import apiRoute from './src/routes/apiRoute';
 
 dotenv.config();
 
@@ -9,6 +10,8 @@ const port = process.env.PORT;
 app.get('/', (req: Request, res: Response) => {
   res.send("Hello bike world!")
 });
+
+app.use('/api/v1', apiRoute);
 
 app.listen(port, () => {
   console.log(`server running at http://localhost:${port}`);
