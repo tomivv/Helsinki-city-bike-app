@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/:limit/:offset', async (req: Request, res: Response) => {
   const client = await pool.connect();
 
-  const sql = `SELECT j.id, s.name as departure_station, s2.name as return_station, departure_station_id, return_station_id, duration, distance
+  const sql = `SELECT s.name as departure_station, s2.name as return_station, duration, distance
   FROM journeys AS j
   INNER JOIN stations AS s ON j.departure_station_id = s.id
   INNER JOIN stations AS s2 ON j.return_station_id = s2.id
