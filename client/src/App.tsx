@@ -1,9 +1,10 @@
 import React from 'react';
+import View from './pages/journey/View';
 
 function App() {
   return (
     <div className="App">
-      <p>React app</p>
+      <View />
     </div>
   );
 }
