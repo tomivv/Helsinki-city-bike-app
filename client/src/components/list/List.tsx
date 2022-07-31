@@ -1,10 +1,9 @@
 import React from 'react';
-import { IJourney } from '../../interfaces/journeys';
 import ListHeader from './ListHeader';
 import ListItem from './ListItem';
 
 interface props {
-  listItems: IJourney[],
+  listItems: object[],
   listHeader: string[]
 }
 

@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import List from '../../components/list/List';
-import { IJourney } from '../../interfaces/journeys';
 import './View.css';
 
 function View() {
 
-  const [items, setItems] = useState<IJourney[]>([]);
+  const [items, setItems] = useState<object[]>([]);
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/journeys/10/0`)
     .then((response) => response.json())
-    .then((data: IJourney[]) => setItems(data))
+    .then((data: object[]) => setItems(data))
   }, []);
 
+  if (items.length <= 0) {
+    return (
+      <div>
+        <h2>Loading..</h2>
+      </div>
+    )
+  }
+  console.log(items);
+  
   return (
     <div className='container'>
-      <List listHeader={['Departure station', 'Return station', 'Distance', 'Duration']} listItems={items} />
+      <List listHeader={Object.keys(items[0])} listItems={items} />
     </div>
   );
 }

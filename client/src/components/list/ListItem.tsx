@@ -1,17 +1,20 @@
 import React from 'react';
-import { IJourney } from '../../interfaces/journeys';
+import { objectToListItemForm } from '../../helpers/helper';
 
 interface props {
-  itemValues: IJourney
+  itemValues: object
 }
 
 function ListItem({ itemValues }: props) {
+
+  const items: string[] = objectToListItemForm(itemValues);
+
   return (
     <div className='list-item'>
-      <p>{itemValues.departure_station}</p>
-      <p>{itemValues.return_station}</p>
-      <p>{(itemValues.distance / 1000).toFixed(2)} km</p>
-      <p>{(itemValues.duration / 60).toFixed(2)} min</p>
+
+      {items.map(item => (
+        <p>{item}</p>
+      ))}
     </div>
   );
 }
