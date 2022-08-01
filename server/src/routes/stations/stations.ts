@@ -25,6 +25,28 @@ interface IStation {
   y: string
 }
 
+router.get('/:limit/:offset', async (req: Request, res: Response) => {
+  const client = await pool.connect();
+
+  const sql = `SELECT s.name, address
+  FROM stations s
+  ORDER BY s.name ASC
+  LIMIT ${req.params.limit} OFFSET ${req.params.offset}`;
+
+  client.query(sql)
+  .then((result: QueryResult) => {
+    res.send(result.rows);
+    client.release();
+  })
+  .catch(error => {
+    console.error(error);
+    res.status(500).json({
+      msg: 'Server error'
+    });
+    client.release();
+  });
+});
+
 router.post('/add/csv', upload.single('stations'), (req: Request, res: Response) => {
 
   if (!req.file) {
