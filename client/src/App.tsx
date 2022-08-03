@@ -1,10 +1,11 @@
 import React from 'react';
-import View from './pages/journey/View';
+import Stations from './pages/stations/Stations';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <View />
+      <Stations />
     </div>
   );
 }
