@@ -25,6 +25,42 @@ interface IStation {
   y: string
 }
 
+router.get('/station/:id', async (req: Request, res: Response) => {
+
+  const { id } = req.params;
+
+  const client = await pool.connect();
+
+  const sql = `SELECT s.name, s.address, s.city
+  FROM stations AS s
+  WHERE s.id = ${id}`;
+
+  client.query(sql)
+  .then((result: QueryResult) => {
+    const countSql = `SELECT COUNT(*) FILTER (WHERE j.departure_station_id = ${id}) as departures, COUNT(*) FILTER (WHERE j.return_station_id = ${id}) as returned
+    FROM journeys AS j`;
+    client.query(countSql)
+    .then((counts: QueryResult) => {
+      res.json({
+        stationDetails: result.rows[0],
+        stationCounts: counts.rows[0]
+      });
+      client.release();
+    }).catch(error => {
+      res.status(500).json({
+        msg: 'Server error'
+      });
+      client.release();
+    });
+  })
+  .catch(error => {
+    res.status(500).json({
+      msg: 'Server error'
+    });
+    client.release();
+  });
+});
+
 router.get('/:limit/:offset', async (req: Request, res: Response) => {
   const client = await pool.connect();
 
@@ -46,6 +82,7 @@ router.get('/:limit/:offset', async (req: Request, res: Response) => {
     client.release();
   });
 });
+
 
 router.post('/add/csv', upload.single('stations'), (req: Request, res: Response) => {
 
