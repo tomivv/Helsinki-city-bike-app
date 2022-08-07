@@ -4,11 +4,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Stations from './pages/stations/Stations';
 import View from './pages/journey/View';
 import Station from './pages/station/Station';
+import Nav from './components/nav/Nav';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path='/stations' element={<Stations />} />
         <Route path='/journeys' element={<View />} />

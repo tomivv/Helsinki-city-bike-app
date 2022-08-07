@@ -10,7 +10,7 @@
     display: flex;
     gap: 150px;
     justify-content: center;
-    background-color: yellow;
+    background-color: #60B2E5;
     align-items: center;
 }
 
@@ -31,4 +31,9 @@
     width: fit-content;
     max-width: 80vw;
     margin: auto;
+}
+
+p::selection {
+    background-color: #5A67F2;
+    color: #fff;
 }

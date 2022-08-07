@@ -1,0 +1,29 @@
+.navigation {
+    display: block;
+    height: 50px;
+    width: 80%;
+    margin: 0 0 3rem 0;
+    line-height: 50px;
+}
+
+header {
+    background-color: #5A67F2;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation li {
+    float: right;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.navigation li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 3rem;
+}
