@@ -20,6 +20,27 @@ interface IStation {
   y: string
 }
 
+router.get('/', async (req: Request, res: Response) => {
+
+  const { id } = req.params;
+
+  const client = await pool.connect();
+
+  const sql = `SELECT s.id, s.name, s.address, s.city
+  FROM stations AS s`;
+
+  client.query(sql)
+  .then((result: QueryResult) => {
+    res.json(result.rows);
+  })
+  .catch(error => {
+    res.status(500).json({
+      msg: 'Server error'
+    });
+    client.release();
+  });
+});
+
 router.get('/station/:id', async (req: Request, res: Response) => {
 
   const { id } = req.params;
