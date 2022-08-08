@@ -1,3 +1,5 @@
+import { IStation } from "../interfaces/station";
+
 /**
  * 
  * @param str String which needs first letter to be capital
@@ -36,4 +38,15 @@ export function objectToListItemForm(obj: object) {
   });
 
   return values;
+}
+
+/**
+ * 
+ * @param arr array of stations
+ * @param filter string that is used to filter array if no string is given returns empty array
+ * @returns filtered version of param arr
+ */
+export function filterStations(arr: Array<IStation>, filter: string) {
+  if (filter === '') return [];
+  return arr.filter(e => e.name.toLowerCase().includes(filter) || e.address.toLowerCase().includes(filter) || e.city.toLowerCase().includes(filter));
 }

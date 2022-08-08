@@ -5,6 +5,7 @@ import Stations from './pages/stations/Stations';
 import View from './pages/journey/View';
 import Station from './pages/station/Station';
 import Nav from './components/nav/Nav';
+import StationSearch from './pages/station/StationSearch';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Routes>
         <Route path='/stations' element={<Stations />} />
         <Route path='/journeys' element={<View />} />
-        <Route path='/stations/:id' element={<Station />} />
+        <Route path='/station' element={<StationSearch />} />
+        <Route path='/station/:id' element={<Station />} />
       </Routes>
       </BrowserRouter>
     </div>

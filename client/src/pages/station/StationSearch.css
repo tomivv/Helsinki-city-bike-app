@@ -1,0 +1,17 @@
+.label-hidden {
+    visibility: hidden;
+}
+
+.input-text-lg {
+    width: 500px;
+    height: 40px;
+    border-radius: 0.5rem;
+    border: black solid 1px;
+    font-size: 1.2rem;
+    margin: auto;
+    display: block;
+}
+
+.search-input {
+    margin-bottom: 3rem;
+}

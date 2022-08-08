@@ -13,6 +13,9 @@ function Nav() {
           <li>
             <Link to='/stations'>Stations</Link>
           </li>
+          <li>
+            <Link to='/station'>Station search</Link>
+          </li>
         </ul>
       </nav>
     </header>
