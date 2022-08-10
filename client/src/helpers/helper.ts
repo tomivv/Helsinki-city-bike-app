@@ -48,5 +48,6 @@ export function objectToListItemForm(obj: object) {
  */
 export function filterStations(arr: Array<IStation>, filter: string) {
   if (filter === '') return [];
+  filter = filter.toLowerCase();
   return arr.filter(e => e.name.toLowerCase().includes(filter) || e.address.toLowerCase().includes(filter) || e.city.toLowerCase().includes(filter));
 }
