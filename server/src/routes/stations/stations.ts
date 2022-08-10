@@ -22,8 +22,6 @@ interface IStation {
 
 router.get('/', async (req: Request, res: Response) => {
 
-  const { id } = req.params;
-
   const client = await pool.connect();
 
   const sql = `SELECT s.id, s.name, s.address, s.city
@@ -80,7 +78,7 @@ router.get('/station/:id', async (req: Request, res: Response) => {
 router.get('/:limit/:offset', async (req: Request, res: Response) => {
   const client = await pool.connect();
 
-  const sql = `SELECT s.name, address
+  const sql = `SELECT s.id, s.name, address
   FROM stations s
   ORDER BY s.name ASC
   LIMIT ${req.params.limit} OFFSET ${req.params.offset}`;
