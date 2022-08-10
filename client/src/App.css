@@ -23,3 +23,26 @@ body {
     text-align: center;
     margin-top: 0;
 }
+
+.flex {
+    display: flex;
+}
+
+.btn {
+    width: 80px;
+    height: 30px;
+}
+
+.btn-lg {
+    width: 120px;
+    height: 40px;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+
+.mt-1 {
+    margin-top: 1rem;
+}

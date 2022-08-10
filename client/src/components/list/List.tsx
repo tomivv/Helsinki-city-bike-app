@@ -2,6 +2,7 @@ import React from 'react';
 import ListHeader from './ListHeader';
 import ListItem from './ListItem';
 import './List.css';
+import Pagination from '../pagination/Pagination';
 
 interface props {
   listItems: object[],
@@ -17,6 +18,7 @@ function List({ listItems, listHeader }: props) {
           <ListItem itemValues={item} />
         ))}
       </div>
+      <Pagination />
     </div>
   )
 }
