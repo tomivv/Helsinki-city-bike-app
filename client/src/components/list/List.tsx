@@ -6,16 +6,17 @@ import Pagination from '../pagination/Pagination';
 
 interface props {
   listItems: object[],
-  listHeader: string[]
+  listHeader: string[],
+  isLink: boolean
 }
 
-function List({ listItems, listHeader }: props) {
+function List({ listItems, listHeader, isLink }: props) {
   return (
     <div className='list'>
       <ListHeader listHeaderValues={listHeader} />
       <div className='list-body'>
         {listItems.map(item => (
-          <ListItem itemValues={item} />
+          <ListItem itemValues={item} isLink={isLink} />
         ))}
       </div>
       <Pagination />

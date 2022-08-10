@@ -30,7 +30,7 @@ function StationSearch() {
         <label aria-readonly className='label-hidden'>Search</label>
         <input type="text" name="search" id="search" className='input-text-lg' placeholder='Station name, address, city' value={search} onChange={handleInputChange} />
       </div>
-      {list.length > 0 ? <List listHeader={Object.keys(stations[0])} listItems={list} /> : <div></div>}
+      {list.length > 0 ? <List listHeader={Object.keys(stations[0])} listItems={list} isLink={true}/> : <div></div>}
     </div>
   );
 }

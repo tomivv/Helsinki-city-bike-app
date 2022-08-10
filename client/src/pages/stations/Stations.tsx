@@ -26,7 +26,7 @@ function Stations() {
   return (
     <div className='container'>
       <PaginationProvider value={{next, back, index, items}}>
-        <List listHeader={Object.keys(items[0])} listItems={items} />
+        <List listHeader={Object.keys(items[0])} listItems={items} isLink={true} />
       </PaginationProvider>
     </div>
   );
