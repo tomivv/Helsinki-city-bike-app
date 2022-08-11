@@ -10,3 +10,10 @@ services:
     volumes:
       - ./docker-data:/var/lib/postgresql/data
       - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create-tables.sql
+  server:
+    depends_on:
+      - db
+    build: ./server
+    restart: always
+    ports:
+      - "3003:3003"
