@@ -30,6 +30,7 @@ router.get('/', async (req: Request, res: Response) => {
   client.query(sql)
   .then((result: QueryResult) => {
     res.json(result.rows);
+    client.release();
   })
   .catch(error => {
     res.status(500).json({
